@@ -1,0 +1,70 @@
+
+@use './_colors' as *;
+@use './_animations' as *;
+
+
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1300px;
+}
+
+
+// BURGER BTN
+
+.nav {
+
+    &__burger-btn {
+        display: block;
+        margin-inline-start: auto;
+        padding: 1em;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    &__burger-btn-box {
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+    &__burger-btn-bar {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 3px;
+        background-color: $pureWhite;
+
+        &--top {
+            top: 7px;
+        }
+        &--middle {
+            top: 18px;
+        }
+        &--bottom {
+            top: 29px;
+        }
+    }
+
+}
+
+.nav__burger-btn.openAnimation .nav__burger-btn-bar--top {
+    animation: barTopAnimation .2s forwards;
+}
+.nav__burger-btn.openAnimation .nav__burger-btn-bar--bottom {
+    animation: barBottomAnimation .2s forwards;
+}
+.nav__burger-btn.openAnimation .nav__burger-btn-bar--middle {
+    animation: barMiddleAnimation .2s .1s forwards;
+}
+
+
+.nav__burger-btn.closeAnimation .nav__burger-btn-bar--top {
+    animation: barTopBackAnimation .2s .1s backwards;
+}
+.nav__burger-btn.closeAnimation .nav__burger-btn-bar--bottom {
+    animation: barBottomBackAnimation .2s .1s backwards;
+}
+.nav__burger-btn.closeAnimation .nav__burger-btn-bar--middle {
+    animation: barMiddleBackAnimation .2s backwards;
+}

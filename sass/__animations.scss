@@ -1,0 +1,69 @@
+
+// Opening burger btn
+
+@keyframes barTopAnimation {
+    from {
+        transform: translate(-50%, 0);
+    }
+    to {
+        transform: translate(-50%, 3px);
+    }
+}
+@keyframes barBottomAnimation {
+    from {
+        transform: translate(-50%, 0);
+    }
+    to {
+        transform: translate(-50%, -3px);
+    }
+}
+@keyframes barMiddleAnimation {
+    from {
+        transform: translate(-50%, 0);
+    }
+    to {
+        transform: translate(-70%, 0);
+    }
+}
+
+
+// closing burger btn 
+
+@keyframes barTopBackAnimation {
+    from {
+        transform: translate(-50%, 3px);
+    }
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes barBottomBackAnimation {
+    from {
+        transform: translate(-50%, -3px);
+    }
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes barMiddleBackAnimation {
+    from {
+        transform: translate(-70%, 0);
+    }
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+
+@keyframes mobileDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
