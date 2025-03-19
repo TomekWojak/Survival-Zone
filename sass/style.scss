@@ -27,7 +27,7 @@ body {
     position: relative;
     padding: 2em 1em;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('../images/hero-img-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -39,12 +39,84 @@ body {
         width: 100%;
         height: 100%;
         inset: 0;
-        background-color: rgba(0, 0, 0, .20);
+        background-color: rgba(0, 0, 0, .30);
         z-index: -1;
+    }
+
+    &__box {
+        width: 100%;
+        &.wrapper {
+            margin: 4em auto;
+        }
+    }
+    &__img-box {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        height: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            background-color: rgba(0, 0, 0, .25);
+        }
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+        border-radius: 5px;
+    }
+    &__text {
+        position: relative;
+        margin-block-start: 3em;
+    }
+    &__text-link {
+        text-decoration: none;
+        color: $pureWhite;
+    }
+    &__heading {
+        text-align: center;
+        font-family: $Oswald;
+        text-transform: uppercase;
+        color: $pureWhite;
+        font-size: 2.8rem;
+        font-weight: normal;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+
+        &:nth-child(3) {
+            font-weight: 600;
+            color: $accentColor;
+            letter-spacing: 1px;
+        }
+    }
+    &__arrows-down {
+        position: absolute;
+        display: block;
+        margin-block-start: .5em;
+        width: 60px;
+        aspect-ratio: 1;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
+
+
+
+
+
+
+
 .nav {
+    position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -64,6 +136,9 @@ body {
     }
 
 
+    &__links-desktop {
+        display: none;
+    }
 
     &__links-mobile {
         display: flex;
@@ -79,7 +154,7 @@ body {
         list-style-type: none;
         font-family: $Roboto;
         background-color: rgba(0, 0, 0, .75);
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(5px);
         transition: transform .4s;
 
 
@@ -173,6 +248,154 @@ body {
 
         &:hover {
             color: $accentColor;
+        }
+    }
+}
+
+
+
+
+
+
+
+// ================== MEDIA ======================
+
+
+@media(576px <= width) {
+    .header {
+
+        &__img-box {
+            width: 80%;
+            height: 350px;
+        }
+        &__heading {
+            font-size: 3.2rem;
+        }
+    }
+}
+
+
+@media(768px <= width) {
+    .header {
+        padding: 4em 2em;
+        &__img-box {
+            width: 30%;
+            height: auto;
+        }
+        &__heading {
+            font-size: 3.2rem;
+        }
+    }
+    .nav {
+        &__links-mobile {
+            display: none;
+        }
+        &__links-desktop {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            list-style-type: none;
+            color: $pureWhite;
+            font-family: $Roboto;
+        }
+        &__logo {
+            margin-inline-end: 2em;
+        }
+        &__menu-item {
+            display: inline-block;
+            position: relative;
+            margin: 0 3em;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -.3em;
+                width: 100%;
+                height: 2px;
+                background-color: $accentColor;
+                transform: scale(0);
+                transform-origin: right;
+                transition: transform .3s;
+            }
+
+            &:hover::before {
+                transform: scale(1);
+                transform-origin: left;
+            }
+            &:hover .arrow-down {
+                transform: translateY(-50%) rotate(180deg);
+            }
+            &:hover .nav__dropdown-desktop-li{
+                display: block;
+                animation: desktopDropdown .2s both;
+            }
+            &:hover .nav__dropdown-desktop-li:nth-child(2) {
+                animation-delay: .1s;
+            }
+            &:hover .nav__dropdown-desktop-li:nth-child(3) {
+                animation-delay: .2s;
+            }
+            &:hover .nav__dropdown-desktop-li:nth-child(4) {
+                animation-delay: .3s;
+            }
+            
+        }
+        &__menu-span, .nav__menu-item-link {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: $pureWhite;
+            transition: color .3s;
+
+         
+
+            &:hover {
+                color: $accentColor;
+            }
+            .arrow-down {
+                left: -1.5em;
+                top: 50%;
+                transform: translateY(-50%);
+                position: absolute;
+                font-size: 1.6rem;
+                vertical-align: middle;
+                transition: transform .1s;
+            }
+        }
+
+        &__dropdown-desktop {
+           position: absolute;
+           padding: 1em 0;
+           left: -1em;
+           list-style-type: none;
+        }
+        &__dropdown-desktop-li {
+            display: none;
+            opacity: 0;
+            width: 100%;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            transition: background-color .3s;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, .7);
+            }
+            &:hover .nav__desktop-dropdown-link {
+                color: $accentColor;
+            }
+        }
+        &__desktop-dropdown-link {
+            padding: 1em .5em;
+            text-decoration: none;
+            color: #ddd;
+            display: block;
+            transition: color .3s;
+        }
+
+        &__burger-btn {
+            display: none;
         }
     }
 }
