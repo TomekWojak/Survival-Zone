@@ -24,10 +24,11 @@ body {
 
 
 .header {
+    display: flex;
+    flex-direction: column;
     position: relative;
     padding: 2em 1em;
     width: 100%;
-    min-height: 100vh;
     background-image: url('../images/hero-img-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -45,6 +46,11 @@ body {
 
     &__box {
         width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         &.wrapper {
             margin: 4em auto;
         }
@@ -78,8 +84,12 @@ body {
         margin-block-start: 3em;
     }
     &__text-link {
+        display: block;
         text-decoration: none;
         color: $pureWhite;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     &__heading {
         text-align: center;
@@ -97,13 +107,10 @@ body {
         }
     }
     &__arrows-down {
-        position: absolute;
         display: block;
         margin-block-start: .5em;
         width: 60px;
         aspect-ratio: 1;
-        left: 50%;
-        transform: translateX(-50%);
     }
 }
 
@@ -122,12 +129,16 @@ body {
     align-items: center;
     z-index: 100;
 
+        &.wrapper {
+            max-width: 1300px;
+        }
+
     &__logo-link {
         text-decoration: none;
     }
     &__logo {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
         aspect-ratio: 1;
     }
     &__logo-img {
@@ -276,16 +287,6 @@ body {
 
 
 @media(768px <= width) {
-    .header {
-        padding: 4em 2em;
-        &__img-box {
-            width: 30%;
-            height: auto;
-        }
-        &__heading {
-            font-size: 3.2rem;
-        }
-    }
     .nav {
         &__links-mobile {
             display: none;
@@ -305,13 +306,14 @@ body {
         &__menu-item {
             display: inline-block;
             position: relative;
-            margin: 0 3em;
+            margin: 0 2em;
+            padding: 1em;
 
             &::before {
                 content: '';
                 position: absolute;
-                bottom: -.3em;
-                width: 100%;
+                bottom: 0;
+                width: 80%;
                 height: 2px;
                 background-color: $accentColor;
                 transform: scale(0);
@@ -355,7 +357,7 @@ body {
                 color: $accentColor;
             }
             .arrow-down {
-                left: -1.5em;
+                left: -.8em;
                 top: 50%;
                 transform: translateY(-50%);
                 position: absolute;
@@ -367,7 +369,7 @@ body {
 
         &__dropdown-desktop {
            position: absolute;
-           padding: 1em 0;
+           padding: 2.5em 0;
            left: -1em;
            list-style-type: none;
         }
@@ -377,6 +379,7 @@ body {
             width: 100%;
             font-size: 1.3rem;
             letter-spacing: 2px;
+            border-radius: 3px;
             transition: background-color .3s;
 
             &:hover {
@@ -396,6 +399,153 @@ body {
 
         &__burger-btn {
             display: none;
+        }
+    }
+
+    .header {
+        padding: 4em 2em;
+
+        &__box {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        &__text {
+            margin-block-start: 15em;
+            display: flex;
+            flex-direction: column;
+            order: -1;
+            width: 60%;
+        }
+        &__img-box {
+            position: relative;
+            top: 3em;
+            width: 40%;
+            height: auto;
+            align-self: center;
+        }
+        &__heading {
+            font-size: 3.4rem;
+            text-align-last: left;
+
+            &:nth-child(1) {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: -.5em;
+                    width: 80px;
+                    height: 2px;
+                    background-color: $accentColor;
+                }
+            }
+            &:nth-child(2) {
+                padding-inline-start: 1em;
+            }
+            &:nth-child(3) {
+                padding-inline-start: 2em;
+            }
+        }
+        &__text-link {
+            align-self: center;
+            position: static;
+        }
+        &__arrows-down {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+}
+
+
+
+@media(992px <= width) {
+    .header {
+
+        padding: 4em;
+        &__heading {
+            font-size: 4rem;
+
+            &:nth-child(1) {
+
+                &::before {
+                    width: 90px;
+                }
+            }
+            &:nth-child(2) {
+                padding-inline-start: 1.5em;
+            }
+            &:nth-child(3) {
+                padding-inline-start: 3em;
+            }
+        }
+        &__img-box {
+            width: 35%;
+        }
+        &__text-link {
+            margin-inline-start: 10em;
+        }
+
+        &__text {
+            margin-block-start: 0;
+            display: flex;
+            flex-direction: column;
+            order: -1;
+            align-self: center;
+            width: 60%;
+        }
+    }
+
+
+    .nav {
+        &__logo {
+            margin-inline-end: 7em;
+        }
+    }
+}
+
+@media(1100px <= width) {
+    .header {
+        height: 100vh;
+        &__heading {
+            font-size: 4.5rem;
+            &:nth-child(1) {
+                &::before {
+                    width: 110px;
+                }
+            }
+        }
+        &__arrows-down {
+            margin-block-start: 2em;
+            width: 80px;
+            height: 80px;
+        }
+        &__img-box {
+            width: 40%;
+            max-width: 700px;
+        }
+        &__text {
+            width: 60%;
+            align-items: flex-start;
+        }
+    }
+
+    .nav {
+        &__logo {
+            margin-inline-end: 10em;
+        }
+        &__dropdown-desktop-li {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media(1400px <= width) {
+    .header {
+        &__heading {
+            font-size: 5rem;
         }
     }
 }
