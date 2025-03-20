@@ -6,7 +6,7 @@ const dropdownMobileListItems = document.querySelectorAll('.nav__dropdown-mobile
 const navMobile = document.querySelector('.nav__links-mobile')
 const nav = document.querySelector('.nav')
 const allNavMobileLinks = document.querySelectorAll('.nav__item')
-
+const logo = document.querySelector('.nav__logo-img')
 
 burgerBtn.addEventListener('click', () => {
 
@@ -17,12 +17,16 @@ burgerBtn.addEventListener('click', () => {
         burgerBtn.classList.add('closeAnimation')
         burgerBtn.classList.remove('openAnimation')
         navMobile.classList.remove('active')
+        logo.classList.remove('rotated')
+        logo.classList.add('unrotated')
         
     }else {
         burgerBtn.setAttribute('aria-expanded', 'true')
         burgerBtn.classList.remove('closeAnimation')
         burgerBtn.classList.add('openAnimation')
         navMobile.classList.add('active')
+        logo.classList.add('rotated')
+        logo.classList.remove('unrotated')
     }
 
     allNavMobileLinks.forEach(link => link.addEventListener('click', () => {

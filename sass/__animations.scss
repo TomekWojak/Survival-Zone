@@ -78,3 +78,37 @@
         opacity: 1;
     }
 }
+
+
+@keyframes trackingPath {
+    0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80% {
+        opacity: 0;
+        transform: rotate(-50deg) scale(1);
+    }
+    90% {
+        opacity: .1;
+        transform: rotate(-50deg) scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-50deg) scale(1.1);
+    }
+}
+
+
+@keyframes rotationLeft {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}
+@keyframes rotationRight {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
