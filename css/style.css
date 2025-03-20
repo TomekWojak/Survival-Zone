@@ -136,6 +136,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
 
 body {
@@ -393,7 +394,7 @@ body {
   background-color: #1B1F23;
 }
 .offers .wrapper {
-  max-width: 800px;
+  max-width: 900px;
 }
 .offers__box {
   margin: 0 auto;
@@ -464,6 +465,60 @@ body {
   width: 40px;
   color: #FFD700;
 }
+.offers__caption-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 3em auto;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.offers__caption-box .offers__card-icon {
+  width: 20px;
+  font-size: 1.3rem;
+}
+.offers__caption {
+  margin: 0 auto;
+  width: 14em;
+  display: flex;
+  gap: 0.3em;
+  justify-content: flex-start;
+  padding: 0.8em 0;
+}
+.offers__info-bottom-box {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+}
+.offers__info-bottom-box .offers__card-icon {
+  font-size: 1rem;
+  width: 20px;
+}
+.offers__info-bottom-box .text-decorated {
+  color: #FFD700;
+  font-weight: 700;
+}
+.offers__info {
+  margin: 1em auto;
+  width: 100%;
+}
+.offers__info-top {
+  width: 90%;
+}
+.offers__info-bottom {
+  color: #B8B3B3;
+}
+.offers__info-link {
+  text-decoration: none;
+  color: #FFD700;
+}
+.offers__info-link:hover {
+  text-decoration: underline;
+}
 
 @media (576px <= width) {
   .header__img-box {
@@ -475,6 +530,12 @@ body {
   }
   .offers .section-title {
     font-size: 3rem;
+  }
+  .offers__caption-box {
+    margin: 5em auto;
+  }
+  .offers__caption-text {
+    font-size: 1.2rem;
   }
 }
 @media (768px <= width) {
@@ -636,6 +697,9 @@ body {
     width: 70px;
     height: 70px;
   }
+  .offers__info {
+    font-size: 1.3rem;
+  }
 }
 @media (992px <= width) {
   .header__heading {
@@ -670,8 +734,29 @@ body {
   .offers .section-title {
     font-size: 3.6rem;
   }
+  .offers__caption-box {
+    margin: 7em auto 4em;
+  }
+  .offers__card {
+    width: 250px;
+  }
+  .offers__card-title {
+    font-size: 2rem;
+  }
+  .offers__card-info {
+    font-size: 1.5rem;
+  }
+  .offers__info {
+    font-size: 1.5rem;
+  }
+  .offers__info .offers__card-icon {
+    font-size: 1.2rem;
+  }
 }
 @media (1100px <= width) {
+  html {
+    scroll-padding-top: 0;
+  }
   .header {
     height: 100vh;
   }

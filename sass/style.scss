@@ -17,6 +17,7 @@ $Roboto: 'Roboto', sans-serif;
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    scroll-padding-top: 50px;
 }
 
 body {
@@ -312,7 +313,7 @@ body {
     background-color: $offersBg;
 
     .wrapper {
-        max-width: 800px;
+        max-width: 900px;
     }
 
     &__box {
@@ -390,6 +391,67 @@ body {
         color: $accentColor;
     }
 
+    &__caption-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 3em auto;
+        color: $pureWhite;
+        font-family: $Roboto;
+
+        .offers__card-icon {
+            width: 20px;
+            font-size: 1.3rem;
+        }
+    }
+    &__caption {
+        margin: 0 auto;
+        width: 14em;
+        display: flex;
+        gap: 0.3em;
+        justify-content: flex-start;
+        padding: .8em 0;
+    }
+
+    &__info-bottom-box {
+        width: 100%;
+        text-align: center;
+        color: $pureWhite;
+        font-family: $Roboto;
+        font-size: 1.2rem;
+
+        .offers__card-icon {
+            font-size: 1rem;
+            width: 20px;
+        }
+        .text-decorated {
+            color: $accentColor;
+            font-weight: 700;
+        }
+   
+    }
+    &__info {
+        margin: 1em auto;
+        width: 100%;
+
+        &-top {
+            width: 90%;
+        }
+        &-bottom {
+            color: #B8B3B3;
+        }
+    }
+    &__info-link {
+        text-decoration: none;
+        color: $accentColor;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
 }
 
 
@@ -412,6 +474,13 @@ body {
     .offers {
         .section-title {
             font-size: 3rem;
+        }
+
+        &__caption-box {
+            margin: 5em auto;
+        }
+        &__caption-text {
+            font-size: 1.2rem;
         }
     }
 }
@@ -591,6 +660,13 @@ body {
         }
     }
 
+    .offers {
+
+        &__info {
+            font-size: 1.3rem;
+        }
+    }
+
 
 
 }
@@ -643,10 +719,35 @@ body {
         .section-title {
             font-size: 3.6rem;
         }
+        &__caption-box {
+            margin: 7em auto 4em;
+        }
+        &__card {
+            width: 250px;
+        }
+        &__card-title {
+            font-size: 2rem;
+        }
+        &__card-info {
+            font-size: 1.5rem;
+        }
+        
+        &__info {
+            font-size: 1.5rem;
+
+            .offers__card-icon {
+                font-size: 1.2rem;
+            }
+        }
     }
 }
 
 @media(1100px <= width) {
+
+    html {
+        scroll-padding-top: 0;
+    }
+
     .header {
         height: 100vh;
         &__heading {
