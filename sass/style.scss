@@ -36,6 +36,11 @@ body {
     color: $accentColor;
 }
 
+
+.text-decorated {
+    color: $accentColor;
+}
+
 .accent-text {
     position: relative;
     display: inline-block;
@@ -436,7 +441,6 @@ body {
             width: 20px;
         }
         .text-decorated {
-            color: $accentColor;
             font-weight: 700;
         }
    
@@ -469,7 +473,7 @@ body {
 
 .crew {
     position: relative;
-    padding: 6em 2em;
+    padding: 6em 2em 8em;
     background-color: $crewSectionBg;
 
     .wrapper {
@@ -531,9 +535,6 @@ body {
         letter-spacing: 2px;
         z-index: 10;
 
-        .text-decorated {
-            color: $accentColor;
-        }
     }
     &__card-info {
         font-size: 1.3rem;
@@ -554,10 +555,81 @@ body {
 
 
 
+// RULES SECTION
+
+.rules {
+    padding: 6em 2em;
+    background-color: $rulesSectionBg;
+
+
+
+
+    .line {
+        display: none;
+    }
+
+    &__box {
+        font-family: $Roboto;
+        color: $pureWhite;
+    }
+    &__rule {
+        display: flex;
+        align-items: flex-start;
+        margin: 5em 0;
+    }
+    &__square {
+        width: 16px;
+        height: 16px;
+        margin: 0.4em 1.5em 0 0;
+        aspect-ratio: 1;
+        border: 2px solid $accentColor;
+
+        &--filled {
+            border: none;
+            background-color: $accentColor;
+        }
+    }
+    
+    &__title {
+        margin-block-end: .3em;
+        font-family: $Oswald;
+        text-transform: uppercase;
+        font-weight: normal;
+        letter-spacing: 2px;
+        font-size: 1.7rem;
+    }
+    &__text {
+        font-size: 1.2rem;
+        line-height: 20px;
+
+        .text-decorated {
+            font-weight: normal;
+            font-weight: 700;
+        }
+    }
+}
+
+
 // ================== MEDIA ======================
 
 
+@media(400px <= width) {
+    .rules {
+        &__title {
+            font-size: 1.9rem;
+        }
+        &__square {
+            margin: 0.5em 1.5em 0 0;
+        }
+    }
+}
+
+
 @media(576px <= width) {
+    .section-title {
+        font-size: 3rem;
+    }
+
     .header {
 
         &__img-box {
@@ -570,9 +642,6 @@ body {
     }
 
     .offers {
-        .section-title {
-            font-size: 3rem;
-        }
 
         &__caption-box {
             margin: 5em auto;
@@ -584,8 +653,20 @@ body {
 
     .crew {
         padding: 8em 2em;
-        .section-title {
-            font-size: 3rem;
+
+    }
+
+    .rules {
+        padding: 8em 2em;
+
+        &__title {
+            font-size: 2.1rem;
+        }
+        &__text {
+            font-size: 1.3rem;
+        }
+        &__square {
+            margin: 0.7em 1.5em 0 0;
         }
     }
 }
@@ -616,6 +697,26 @@ body {
                 right: 0;
                 transform: translateX(50%)
             }
+        }
+    }
+
+    .rules {
+
+        .line {
+            display: block;
+            width: 2px;
+            height: 120px;
+            background-color: $accentColor;
+            align-self: center;
+        }
+        &__box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        &__rule {
+            width: 40%;
         }
     }
 }
@@ -866,6 +967,9 @@ body {
 
 
 @media(992px <= width) {
+    .section-title {
+        font-size: 3.6rem;
+    }
     .header {
 
         &__heading {
@@ -908,9 +1012,7 @@ body {
     .offers {
         padding: 10em 2em;
 
-        .section-title {
-            font-size: 3.6rem;
-        }
+
         &__caption-box {
             margin: 7em auto 4em;
         }
@@ -935,18 +1037,36 @@ body {
 
     .crew {
 
-        .section-title {
-            font-size: 3.6rem;
-        }
         &__card-title{
             font-size: 3rem;
         }
 
     
     }
+
+    .rules {
+        padding: 10em 4em;
+
+        &__title {
+            font-size: 2.6rem;
+        }
+        &__text {
+            font-size: 1.5rem;
+            line-height: 25px;
+        }
+        &__square {
+            width: 20px;
+            height: 20px;
+            margin: .9em 1.5em 0 0;
+        }
+    }
 }
 
 @media(1100px <= width) {
+
+    .section-title {
+        font-size: 4rem;
+    }
 
     html {
         scroll-padding-top:30px;
@@ -992,7 +1112,6 @@ body {
         padding: 15em 2em;
         .section-title {
             text-align: left;
-            font-size: 4rem;
         }
         &__box {
             justify-content: space-between;
@@ -1000,9 +1119,7 @@ body {
     }
     .crew {
 
-        .section-title {
-            font-size: 4rem;
-        }
+
         &__card-title{
             font-size: 3.2rem;
         }
@@ -1011,6 +1128,25 @@ body {
             line-height: 25px;
         }
 
+    }
+
+    .rules {
+        padding: 12em 4em;
+
+        &__title {
+            font-size: 3rem;
+        }
+        &__text {
+            font-size: 1.7rem;
+        }
+        &__square {
+            width: 22px;
+            height: 22px;
+            margin: 1.1em 1.5em 0 0;
+        }
+        &__rule {
+            width: 35%;
+        }
     }
 }
 

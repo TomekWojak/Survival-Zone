@@ -185,6 +185,10 @@ body {
   color: #FFD700;
 }
 
+.text-decorated {
+  color: #FFD700;
+}
+
 .accent-text {
   position: relative;
   display: inline-block;
@@ -535,7 +539,6 @@ body {
   width: 20px;
 }
 .offers__info-bottom-box .text-decorated {
-  color: #FFD700;
   font-weight: 700;
 }
 .offers__info {
@@ -558,7 +561,7 @@ body {
 
 .crew {
   position: relative;
-  padding: 6em 2em;
+  padding: 6em 2em 8em;
   background-color: #14171A;
 }
 .crew .wrapper {
@@ -614,9 +617,6 @@ body {
   letter-spacing: 2px;
   z-index: 10;
 }
-.crew__card-title .text-decorated {
-  color: #FFD700;
-}
 .crew__card-info {
   font-size: 1.3rem;
   line-height: 20px;
@@ -633,16 +633,68 @@ body {
   transition: opacity 0.3s;
 }
 
+.rules {
+  padding: 6em 2em;
+  background-color: #23272C;
+}
+.rules .line {
+  display: none;
+}
+.rules__box {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+.rules__rule {
+  display: flex;
+  align-items: flex-start;
+  margin: 5em 0;
+}
+.rules__square {
+  width: 16px;
+  height: 16px;
+  margin: 0.4em 1.5em 0 0;
+  aspect-ratio: 1;
+  border: 2px solid #FFD700;
+}
+.rules__square--filled {
+  border: none;
+  background-color: #FFD700;
+}
+.rules__title {
+  margin-block-end: 0.3em;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 2px;
+  font-size: 1.7rem;
+}
+.rules__text {
+  font-size: 1.2rem;
+  line-height: 20px;
+}
+.rules__text .text-decorated {
+  font-weight: normal;
+  font-weight: 700;
+}
+
+@media (400px <= width) {
+  .rules__title {
+    font-size: 1.9rem;
+  }
+  .rules__square {
+    margin: 0.5em 1.5em 0 0;
+  }
+}
 @media (576px <= width) {
+  .section-title {
+    font-size: 3rem;
+  }
   .header__img-box {
     width: 80%;
     height: 350px;
   }
   .header__heading {
     font-size: 3.2rem;
-  }
-  .offers .section-title {
-    font-size: 3rem;
   }
   .offers__caption-box {
     margin: 5em auto;
@@ -653,8 +705,17 @@ body {
   .crew {
     padding: 8em 2em;
   }
-  .crew .section-title {
-    font-size: 3rem;
+  .rules {
+    padding: 8em 2em;
+  }
+  .rules__title {
+    font-size: 2.1rem;
+  }
+  .rules__text {
+    font-size: 1.3rem;
+  }
+  .rules__square {
+    margin: 0.7em 1.5em 0 0;
   }
 }
 @media (700px <= width) {
@@ -675,6 +736,22 @@ body {
     top: -10em;
     right: 0;
     transform: translateX(50%);
+  }
+  .rules .line {
+    display: block;
+    width: 2px;
+    height: 120px;
+    background-color: #FFD700;
+    align-self: center;
+  }
+  .rules__box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .rules__rule {
+    width: 40%;
   }
 }
 @media (768px <= width) {
@@ -892,6 +969,9 @@ body {
   }
 }
 @media (992px <= width) {
+  .section-title {
+    font-size: 3.6rem;
+  }
   .header__heading {
     font-size: 4rem;
   }
@@ -921,9 +1001,6 @@ body {
   .offers {
     padding: 10em 2em;
   }
-  .offers .section-title {
-    font-size: 3.6rem;
-  }
   .offers__caption-box {
     margin: 7em auto 4em;
   }
@@ -942,14 +1019,29 @@ body {
   .offers__info .offers__card-icon {
     font-size: 1.2rem;
   }
-  .crew .section-title {
-    font-size: 3.6rem;
-  }
   .crew__card-title {
     font-size: 3rem;
   }
+  .rules {
+    padding: 10em 4em;
+  }
+  .rules__title {
+    font-size: 2.6rem;
+  }
+  .rules__text {
+    font-size: 1.5rem;
+    line-height: 25px;
+  }
+  .rules__square {
+    width: 20px;
+    height: 20px;
+    margin: 0.9em 1.5em 0 0;
+  }
 }
 @media (1100px <= width) {
+  .section-title {
+    font-size: 4rem;
+  }
   html {
     scroll-padding-top: 30px;
   }
@@ -989,13 +1081,9 @@ body {
   }
   .offers .section-title {
     text-align: left;
-    font-size: 4rem;
   }
   .offers__box {
     justify-content: space-between;
-  }
-  .crew .section-title {
-    font-size: 4rem;
   }
   .crew__card-title {
     font-size: 3.2rem;
@@ -1003,6 +1091,23 @@ body {
   .crew__card-info {
     font-size: 1.5rem;
     line-height: 25px;
+  }
+  .rules {
+    padding: 12em 4em;
+  }
+  .rules__title {
+    font-size: 3rem;
+  }
+  .rules__text {
+    font-size: 1.7rem;
+  }
+  .rules__square {
+    width: 22px;
+    height: 22px;
+    margin: 1.1em 1.5em 0 0;
+  }
+  .rules__rule {
+    width: 35%;
   }
 }
 @media (1400px <= width) {
