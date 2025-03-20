@@ -135,17 +135,44 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #333;
 }
 
+.section-title {
+  position: relative;
+  margin-block-end: 2em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: normal;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  color: #FFD700;
+}
+
+.accent-text {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+}
+.accent-text::before {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #FFD700;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 2em 1em;
+  padding: 7em 1em;
   width: 100%;
   background-image: url("../images/hero-img-bg.jpg");
   background-size: cover;
@@ -231,15 +258,18 @@ body {
 }
 
 .nav {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset-inline: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
   z-index: 100;
 }
-.nav.wrapper {
+.nav .wrapper {
   max-width: 1300px;
+  display: flex;
+  align-items: center;
+}
+.nav.nav-bg {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .nav__logo-link {
   text-decoration: none;
@@ -277,23 +307,28 @@ body {
 .nav__links-mobile.active {
   transform: translateX(0);
 }
-.nav__item {
+.nav__span {
+  display: block;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.nav__item, .nav__span {
   position: relative;
 }
-.nav__item .nav__item-span, .nav__item .nav__item-link {
+.nav__item .nav__item-span, .nav__item .nav__item-link, .nav__span .nav__item-span, .nav__span .nav__item-link {
   position: relative;
   display: block;
   padding: 0.8em;
   font-size: 2.5rem;
   letter-spacing: 2px;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
   text-decoration: none;
   color: #fff;
-  letter-spacing: 2px;
   cursor: pointer;
 }
-.nav__item .nav__item-span .arrow-down, .nav__item .nav__item-link .arrow-down {
+.nav__item .nav__item-span .arrow-down, .nav__item .nav__item-link .arrow-down, .nav__span .nav__item-span .arrow-down, .nav__span .nav__item-link .arrow-down {
   left: -0.2em;
   top: 50%;
   transform: translateY(-50%);
@@ -302,7 +337,7 @@ body {
   vertical-align: middle;
   transition: transform 0.1s;
 }
-.nav__item .nav__item-span .arrow-down.active, .nav__item .nav__item-link .arrow-down.active {
+.nav__item .nav__item-span .arrow-down.active, .nav__item .nav__item-link .arrow-down.active, .nav__span .nav__item-span .arrow-down.active, .nav__span .nav__item-link .arrow-down.active {
   transform: translateY(-50%) rotate(180deg);
 }
 .nav__dropdown-mobile {
@@ -353,6 +388,83 @@ body {
   color: #FFD700;
 }
 
+.offers {
+  padding: 6em 2em;
+  background-color: #1B1F23;
+}
+.offers .wrapper {
+  max-width: 800px;
+}
+.offers__box {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5em;
+}
+.offers__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  padding: 2em;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  background-color: #263238;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, border 0.3s;
+}
+.offers__card:hover {
+  background: none;
+  border: 2px solid #FFD700;
+}
+.offers__card-title {
+  font-size: 1.8rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.offers hr {
+  width: 100%;
+  margin: 0.5em auto 2em;
+  display: block;
+  border: 1px solid #FFD700;
+}
+.offers hr:first-of-type {
+  margin-block-end: 3em;
+}
+.offers hr:nth-of-type(2), .offers hr:nth-of-type(3), .offers hr:nth-of-type(4), .offers hr:nth-of-type(5) {
+  width: 80%;
+}
+.offers__card-box {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.offers__card-title {
+  font-family: "Oswald", sans-serif;
+}
+.offers__card-title--golden {
+  color: #FFD700;
+}
+.offers__card-info {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-inline-start: 1em;
+  letter-spacing: 2px;
+}
+.offers__card-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  width: 40px;
+  color: #FFD700;
+}
+
 @media (576px <= width) {
   .header__img-box {
     width: 80%;
@@ -361,8 +473,14 @@ body {
   .header__heading {
     font-size: 3.2rem;
   }
+  .offers .section-title {
+    font-size: 3rem;
+  }
 }
 @media (768px <= width) {
+  .nav .wrapper {
+    margin-block-start: 1em;
+  }
   .nav__links-mobile {
     display: none;
   }
@@ -437,7 +555,7 @@ body {
   }
   .nav__dropdown-desktop {
     position: absolute;
-    padding: 2.5em 0;
+    padding: 3em 0;
     left: -1em;
     list-style-type: none;
   }
@@ -451,7 +569,7 @@ body {
     transition: background-color 0.3s;
   }
   .nav__dropdown-desktop-li:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
   }
   .nav__dropdown-desktop-li:hover .nav__desktop-dropdown-link {
     color: #FFD700;
@@ -467,7 +585,7 @@ body {
     display: none;
   }
   .header {
-    padding: 4em 2em;
+    padding: 10em 3em;
   }
   .header__box {
     flex-direction: row;
@@ -520,9 +638,6 @@ body {
   }
 }
 @media (992px <= width) {
-  .header {
-    padding: 4em;
-  }
   .header__heading {
     font-size: 4rem;
   }
@@ -534,9 +649,6 @@ body {
   }
   .header__heading:nth-child(3) {
     padding-inline-start: 3em;
-  }
-  .header__img-box {
-    width: 35%;
   }
   .header__text-link {
     margin-inline-start: 10em;
@@ -552,6 +664,12 @@ body {
   .nav__logo {
     margin-inline-end: 7em;
   }
+  .offers {
+    padding: 10em 2em;
+  }
+  .offers .section-title {
+    font-size: 3.6rem;
+  }
 }
 @media (1100px <= width) {
   .header {
@@ -562,6 +680,7 @@ body {
   }
   .header__heading:nth-child(1)::before {
     width: 110px;
+    height: 3px;
   }
   .header__arrows-down {
     margin-block-start: 2em;
@@ -569,18 +688,30 @@ body {
     height: 80px;
   }
   .header__img-box {
-    width: 40%;
+    top: 8em;
+    width: 35%;
     max-width: 700px;
   }
   .header__text {
     width: 60%;
     align-items: flex-start;
+    align-self: flex-end;
   }
   .nav__logo {
     margin-inline-end: 10em;
   }
   .nav__dropdown-desktop-li {
     font-size: 1.5rem;
+  }
+  .offers {
+    padding: 15em 2em;
+  }
+  .offers .section-title {
+    text-align: left;
+    font-size: 4rem;
+  }
+  .offers__box {
+    justify-content: space-between;
   }
 }
 @media (1400px <= width) {

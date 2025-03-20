@@ -16,18 +16,47 @@ $Roboto: 'Roboto', sans-serif;
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: #333;
 }
 
+.section-title {
+    position: relative;
+    margin-block-end: 2em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $Oswald;
+    font-weight: normal;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    color: $accentColor;
+}
+
+.accent-text {
+    position: relative;
+    display: inline-block;
+    color: $pureWhite;
+
+    &::before {
+        position: absolute;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: $accentColor;
+    }
+}
+
+
 
 .header {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 2em 1em;
+    padding: 7em 1em;
     width: 100%;
     background-image: url('../images/hero-img-bg.jpg');
     background-size: cover;
@@ -45,6 +74,7 @@ body {
     }
 
     &__box {
+        
         width: 100%;
         height: 100%;
         display: flex;
@@ -122,15 +152,19 @@ body {
 
 
 .nav {
-    position: sticky;
-    top: 0;
+    
+    position: fixed;
+    inset-inline: 0;
     width: 100%;
-    display: flex;
-    align-items: center;
     z-index: 100;
 
-        &.wrapper {
+        .wrapper {
             max-width: 1300px;
+            display: flex;
+            align-items: center;
+        }
+        &.nav-bg {
+            background-color: rgba(0, 0, 0, .9);
         }
 
     &__logo-link {
@@ -173,21 +207,25 @@ body {
             transform: translateX(0);
         }
     }
-    &__item {
+    &__span {
+        display: block;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        text-decoration: none;
+        color: $pureWhite;
+        cursor: pointer;
+    }
+    &__item, &__span {
         position: relative;
 
-
-        .nav__item-span, .nav__item-link {
+        .nav__item-span, .nav__item-link{
             position: relative;
             display: block;
             padding: .8em;
             font-size: 2.5rem;
             letter-spacing: 2px;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
             text-decoration: none;
             color: $pureWhite;
-            letter-spacing: 2px;
             cursor: pointer;
 
             .arrow-down {
@@ -267,6 +305,93 @@ body {
 
 
 
+// OFFERS SECTION
+
+.offers {
+    padding: 6em 2em;
+    background-color: $offersBg;
+
+    .wrapper {
+        max-width: 800px;
+    }
+
+    &__box {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5em;
+    }
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 230px;
+        padding: 2em;
+        color: $pureWhite;
+        font-family: $Roboto;
+        text-align: center;
+        background-color: $offersCardBg;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
+        transition: background .3s, border .3s;
+
+        &:hover {
+            background: none;
+            border: 2px solid $accentColor;
+        }
+    }
+    &__card-title {
+        font-size: 1.8rem;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    hr {
+        width: 100%;
+        margin: .5em auto 2em;
+        display: block;
+        border: 1px solid $accentColor;
+
+        &:first-of-type {
+            margin-block-end: 3em;
+        }
+        &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
+            width: 80%;
+        }
+
+    }
+    &__card-box {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+    }
+    &__card-title {
+        font-family: $Oswald;
+
+        &--golden {
+            color: $accentColor;
+        }
+    }
+    &__card-info {
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-inline-start: 1em;
+        letter-spacing: 2px;
+    }
+    &__card-icon {
+        display: inline-block;
+        font-size: 1.5rem;
+        width: 40px;
+        color: $accentColor;
+    }
+
+}
+
 
 
 // ================== MEDIA ======================
@@ -283,11 +408,20 @@ body {
             font-size: 3.2rem;
         }
     }
+
+    .offers {
+        .section-title {
+            font-size: 3rem;
+        }
+    }
 }
 
 
 @media(768px <= width) {
     .nav {
+        .wrapper {
+            margin-block-start: 1em;
+        }
         &__links-mobile {
             display: none;
         }
@@ -369,7 +503,7 @@ body {
 
         &__dropdown-desktop {
            position: absolute;
-           padding: 2.5em 0;
+           padding: 3em 0;
            left: -1em;
            list-style-type: none;
         }
@@ -383,7 +517,7 @@ body {
             transition: background-color .3s;
 
             &:hover {
-                background-color: rgba(0, 0, 0, .7);
+                background-color: rgba(0, 0, 0, .9);
             }
             &:hover .nav__desktop-dropdown-link {
                 color: $accentColor;
@@ -403,7 +537,7 @@ body {
     }
 
     .header {
-        padding: 4em 2em;
+        padding: 10em 3em;
 
         &__box {
             flex-direction: row;
@@ -457,6 +591,8 @@ body {
         }
     }
 
+
+
 }
 
 
@@ -464,7 +600,6 @@ body {
 @media(992px <= width) {
     .header {
 
-        padding: 4em;
         &__heading {
             font-size: 4rem;
 
@@ -480,9 +615,6 @@ body {
             &:nth-child(3) {
                 padding-inline-start: 3em;
             }
-        }
-        &__img-box {
-            width: 35%;
         }
         &__text-link {
             margin-inline-start: 10em;
@@ -504,6 +636,14 @@ body {
             margin-inline-end: 7em;
         }
     }
+
+    .offers {
+        padding: 10em 2em;
+
+        .section-title {
+            font-size: 3.6rem;
+        }
+    }
 }
 
 @media(1100px <= width) {
@@ -514,6 +654,7 @@ body {
             &:nth-child(1) {
                 &::before {
                     width: 110px;
+                    height: 3px;
                 }
             }
         }
@@ -523,12 +664,14 @@ body {
             height: 80px;
         }
         &__img-box {
-            width: 40%;
+            top: 8em;
+            width: 35%;
             max-width: 700px;
         }
         &__text {
             width: 60%;
             align-items: flex-start;
+            align-self: flex-end;
         }
     }
 
@@ -540,6 +683,16 @@ body {
             font-size: 1.5rem;
         }
     }
+    .offers {
+        padding: 15em 2em;
+        .section-title {
+            text-align: left;
+            font-size: 4rem;
+        }
+        &__box {
+            justify-content: space-between;
+        }
+    }
 }
 
 @media(1400px <= width) {
@@ -547,5 +700,6 @@ body {
         &__heading {
             font-size: 5rem;
         }
+
     }
 }
