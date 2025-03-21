@@ -7,6 +7,7 @@ const navMobile = document.querySelector('.nav__links-mobile')
 const nav = document.querySelector('.nav')
 const allNavMobileLinks = document.querySelectorAll('.nav__item')
 const logo = document.querySelector('.nav__logo-img')
+const footerYear = document.querySelector('.footer__year')
 
 burgerBtn.addEventListener('click', () => {
 
@@ -58,6 +59,12 @@ navMobileSpan.addEventListener('click', () => {
     })
 })
 
+
+const handleYear = () => {
+    const currentYear = (new Date).getFullYear()
+    footerYear.innerText = currentYear
+}
+
 const handleNavBg = () => {
     const scrollChange = window.scrollY
 
@@ -68,4 +75,5 @@ const handleNavBg = () => {
     }
 }
 
+handleYear()
 window.addEventListener('scroll', handleNavBg)

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/cdbdae0066.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     
@@ -67,9 +68,12 @@
             <img src="./images/hero-img.jpg" loading="lazy" alt="Piękna aleja otoczona zielonymi drzewami, przez ktore przebijają się promienie słońca" class="header__img">
         </div>
         <div class="header__text">
-            <h1 class="header__heading">każdy dzień to walka.</h1>
-            <h2 class="header__heading">każdy krok to decyzja.</h2>
-            <h3 class="header__heading">Jaką podejmiesz dziś?</h3>
+            <h1 data-aos="fade-up" data-aos-delay="100"
+            data-aos-duration="800" class="header__heading">każdy dzień to walka.</h1>
+            <h2 data-aos="fade-up" data-aos-delay="500"
+            data-aos-duration="800"class="header__heading">każdy krok to decyzja.</h2>
+            <h3 data-aos="fade-up" data-aos-delay="1000"
+            data-aos-duration="800" class="header__heading">Jaką podejmiesz dziś?</h3>
             <a href="#offers" class="header__text-link"><img src="./images/chevrons-down (1).svg" alt="" class="header__arrows-down"></a>
         </div>
     </div>
@@ -80,7 +84,8 @@
         <h2 class="section-title">nasza <span class="accent-text">oferta</span></span></h2>
         <div class="offers__box">
 
-            <div class="offers__card">
+            <div data-aos="flip-left" data-aos-delay="50"
+            data-aos-duration="500" class="offers__card">
                 <h3 class="offers__card-title">podstawowa</h3>
                 <hr>
                 <div class="offers__card-box">
@@ -105,7 +110,8 @@
                 <hr>
             </div>
 
-            <div class="offers__card">
+            <div data-aos="flip-left" data-aos-delay="200"
+            data-aos-duration="500" class="offers__card">
                 <h3 class="offers__card-title">survival</h3>
                 <hr>
                 <div class="offers__card-box">
@@ -130,7 +136,8 @@
                 <hr>
             </div>
 
-            <div class="offers__card">
+            <div data-aos="flip-left" data-aos-delay="400"
+            data-aos-duration="500" class="offers__card">
                 <h3 class="offers__card-title offers__card-title--golden">premium</h3>
                 <hr>
                 <div class="offers__card-box">
@@ -196,21 +203,24 @@
 
                 <img src="./images/fire-solid.svg" alt="" class="crew__card-box-bg">
 
-                <div class="crew__card">
+                <div data-aos="fade-right" data-aos-delay="50"
+                data-aos-duration="500" class="crew__card">
                     <img src="./images/person2.jpg" loading="lazy" width="150" height="150" alt="Jan Kowalski - uśmiechnięty, młody mężczyzna w okularach - główny pomysłodawca przedsiębwzięcia." class="crew__card-img">
                     <img src="./images/paw-solid.svg" width="50" height="50" alt="" class="crew__card-paw">
                     <h3 class="crew__card-title">Jan <span class="text-decorated">Kowalski</span></h3>
                     <p class="crew__card-info">Bawi się w survival od kąd skończył 10 lat. Ukończył wszelkie możliwe kursy survivalowe, a teraz chce pomóc Tobie przeżyć jakąś niezapomnianą przygodę</p>
                 </div>
 
-                <div class="crew__card crew__card--middle">
+                <div data-aos="fade-left" data-aos-delay="50"
+                data-aos-duration="500" class="crew__card crew__card--middle">
                     <img src="./images/person1.jpg" loading="lazy" width="150" height="150" alt="Anna Nowak - młoda kobieta, czarnej karnacji i z ciemnymi włosami - doświadczona poszukiwaczka przygód" class="crew__card-img crew__card-img--middle">
                     <img src="./images/paw-solid.svg" width="50" height="50" alt="" class="crew__card-paw">
                     <h3 class="crew__card-title">Anna <span class="text-decorated">Nowak</span></h3>
                     <p class="crew__card-info">Pasjonatka przygód i przetrwania od najmłodszych lat. Zafascynowana naturą, w wieku 10 lat rozpoczęła swoją podróż z survivalem. Od dzieciństwa zafascynowana naturą i survivalem, nieustannie zgłębia sztukę przetrwania i przygody.</p>
                 </div>
 
-                <div class="crew__card">
+                <div data-aos="fade-right" data-aos-delay="50"
+                data-aos-duration="500"  class="crew__card">
                     <img src="./images/person3.jpg" loading="lazy" width="150" height="150" alt="Maria Wiśniewska - młoda kobieta o blond włosach i jasnych oczach - najambitniejsza instruktorka" class="crew__card-img">
                     <img src="./images/paw-solid.svg" width="50" height="50" alt="" class="crew__card-paw">
                     <h3 class="crew__card-title">Maria <span class="text-decorated">Wiśniewska</span></h3>
@@ -226,7 +236,8 @@
         <div class="wrapper">
             <div class="rules__box">
 
-                <div class="rules__rule">
+                <div data-aos="zoom-in" data-aos-delay="50"
+                data-aos-duration="400" class="rules__rule">
                     <div class="rules__square rules__square--filled"></div>
                     <div class="rules__rule-info">
                     <h4 class="rules__title">zasada <span class="text-decorated">bezpieczeństwa</span></h4>
@@ -236,7 +247,8 @@
 
                 <div class="line"></div>
 
-                <div class="rules__rule">
+                <div data-aos="zoom-in" data-aos-delay="200"
+                data-aos-duration="400" class="rules__rule">
                     <div class="rules__square"></div>
                     <div class="rules__rule-info">
                     <h4 class="rules__title">ogień i <span class="text-decorated">gotowanie</span></h4>
@@ -245,7 +257,8 @@
                 </div>
 
                 
-                <div class="rules__rule">
+                <div data-aos="zoom-in" data-aos-delay="150"
+                data-aos-duration="400" class="rules__rule">
                     <div class="rules__square rules__square"></div>
                     <div class="rules__rule-info">
                     <h4 class="rules__title">zasada <span class="text-decorated">komunikacji</span></h4>
@@ -255,7 +268,8 @@
 
                 <div class="line"></div>
 
-                <div class="rules__rule">
+                <div data-aos="zoom-in" data-aos-delay="300"
+                data-aos-duration="400" class="rules__rule">
                     <div class="rules__square rules__square--filled"></div>
                     <div class="rules__rule-info">
                     <h4 class="rules__title">sprzęt i <span class="text-decorated">ekwipunek</span></h4>
@@ -264,7 +278,8 @@
                     </p>
                 </div>
                 </div>
-                <div class="rules__rule">
+                <div data-aos="zoom-in" data-aos-delay="100"
+                data-aos-duration="400" class="rules__rule">
                     <div class="rules__square rules__square--filled"></div>
                     <div class="rules__rule-info">
                     <h4 class="rules__title">szacunek dla <span class="text-decorated">natury</span></h4>
@@ -274,7 +289,8 @@
 
                 <div class="line"></div>
 
-                <div class="rules__rule">
+                <div data-aos="zoom-in" data-aos-delay="150"
+                data-aos-duration="400" class="rules__rule">
                     <div class="rules__square"></div>
                     <div class="rules__rule-info">
                     <h4 class="rules__title">nocne <span class="text-decorated">zasady</span></h4>
@@ -304,10 +320,45 @@
         </div>
     </section>
     
+    <section class="contact" id="contact">
+        <h2 class="section-title"><span class="accent-text">Skontaktuj się</span> z nami</h2>
+        <div class="wrapper">
+            <div class="contact__box">
 
+                <div class="contact__box-item-left">
+                    <p class="contact__box-title"><span class="text-decorated">Główna siedziba: </span>Kraków</p>
+                    <p class="contact__box-title"><span class="text-decorated">Ulica: </span>ul. Sezamkowa 1</p>
+                    <p class="contact__box-title"><span class="text-decorated">Nr tel: </span>574718273</p>
+                    <p class="contact__box-title"><span class="text-decorated">E-mail: </span>mail@gmail.com</p>
+                </div>
+
+                <div class="contact__box-item-right">
+                    <p class="contact__box-info">
+                        Aby być na bieżąco z survivalowymi ciekawostkami
+                        zapisz się na nasz <span class="text-decorated">newsletter!</span>
+                    </p>
+                    <input type="text" class="contact__box-input" placeholder="e-mail">
+
+                    <button class="contact__box-btn">zapisz się</button>
+                </div>
+            </div>
+            <hr>
+            <div class="contact__social-box">
+                <h5 class="contact__social-title">Znajdziesz nas również:</h5>
+                <a href="#"><i class="fa-brands fa-facebook-f contact__social-box-icon"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram contact__social-box-icon"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in contact__social-box-icon"></i></a>
+            </div>
+        </div>
+    </section>
 </main>
 
+<footer class="footer"><p class="footer__text">&copy; <span class="footer__year"></span> SurvivalZone</p>
+<p class="footer__info">Wszelkie prawa zastrzeżone</p>
+</footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="./js/aos.js"></script>
 <script src="./js/main.js"></script>    
 </body>
 </html>
