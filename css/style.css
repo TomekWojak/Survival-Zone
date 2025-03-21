@@ -710,7 +710,13 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
-  border: 2px solid #FFD700;
+  border: 4px solid #FFD700;
+  filter: brightness(0.8);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.gallery-img:hover {
+  transform: scale(1.1);
 }
 .gallery-img:nth-child(1) {
   grid-row: 1/2;
