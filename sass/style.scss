@@ -498,13 +498,25 @@ body {
         position: relative;
         width: min(450px, 100%);
         margin: 20em auto 0;
-        padding: 4em 2em 2em;
+        padding: 1em 2em 2em;
         background-color: $crewCardBg;
         color: $pureWhite;
         font-family: $Roboto;
         border-radius: 5px;
         z-index: 0;
         isolation: isolate;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            inset-inline: 0;
+            width: 100%;
+            height: 4em;
+            border-radius: 5px 5px 0 0;
+            background-color: $crewCardBg;
+            z-index: -1;
+        }
 
         &:hover .crew__card-paw {
             opacity: 0.3;
@@ -513,7 +525,7 @@ body {
     }
     &__card-img {
         position: absolute;
-        top: -12em;
+        top: -13em;
         left: 50%;
         transform: translateX(-50%);
         width: 150px;
@@ -521,7 +533,7 @@ body {
         object-fit: cover;
         border-radius: 50%;
         border: 5px solid $accentColor;
-        z-index: 1;
+        z-index: -2;
         filter: brightness(.75);
 
 
@@ -540,6 +552,7 @@ body {
     &__card-info {
         font-size: 1.3rem;
         line-height: 20px;
+        z-index: 9;
     }
     &__card-paw{
         position: absolute;
@@ -575,6 +588,7 @@ body {
         margin: 5em 0;
     }
     &__square {
+        display: none;
         width: 16px;
         height: 16px;
         margin: 0.4em 1.5em 0 0;
@@ -607,6 +621,70 @@ body {
 }
 
 
+// GALLERY SECTION
+
+.gallery {
+    padding: 6em 2em;
+    background-color: $crewSectionBg;
+
+    .wrapper {
+        max-width: 900px;
+    }
+
+    &__box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 2em;
+    }
+    &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+        border: 2px solid $accentColor;
+
+        &:nth-child(1) {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+        &:nth-child(2) {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+        }
+        &:nth-child(3) {
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+        }
+        &:nth-child(4) {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+        }
+        &:nth-child(5) {
+            grid-row: 3 / 4;
+            grid-column: 1 / 2;
+        }
+        &:nth-child(6) {
+            grid-row: 3 / 4;
+            grid-column: 2 / 3;
+        }
+        &:nth-child(7) {
+            grid-row: 4 / 5;
+            grid-column: 1 / 2;
+        }
+        &:nth-child(8) {
+            grid-row: 4 / 5;
+            grid-column: 2 / 3;
+        }
+        &:nth-child(9) {
+            grid-row: 5 / 6;
+            grid-column: 1 / 2;
+        }
+    }
+}
+
+
+
 // ================== MEDIA ======================
 
 
@@ -621,6 +699,47 @@ body {
     }
 }
 
+
+@media (475px <= width) {
+    .gallery {
+        padding: 8em 2em;
+
+        &__box {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &-img {
+
+            &:nth-child(3) {
+                grid-row: 1 / 2;
+                grid-column: 3 / 4;
+            }
+            &:nth-child(4) {
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+            }
+            &:nth-child(5) {
+                grid-row: 2 / 3;
+                grid-column: 2 / 3;
+            }
+            &:nth-child(6) {
+                grid-row: 2 / 3;
+                grid-column: 3 / 4;
+            }
+            &:nth-child(7) {
+                grid-row: 3 / 4;
+                grid-column: 1 / 2;
+            }
+            &:nth-child(8) {
+                grid-row: 3 / 4;
+                grid-column: 2 / 3;
+            }
+            &:nth-child(9) {
+                grid-row: 3 / 4;
+                grid-column: 3 / 4;
+            }
+        }
+    }
+}
 
 @media(576px <= width) {
     .section-title {
@@ -690,7 +809,7 @@ body {
 
             &--middle {
                 left: initial;
-                top: -10em;
+                top: -12em;
                 right: 0;
                 transform: translateX(50%)
             }
@@ -714,6 +833,9 @@ body {
         }
         &__rule {
             width: 40%;
+        }
+        &__square {
+            display: block;
         }
     }
 }
@@ -959,6 +1081,12 @@ body {
 
     }
 
+    .gallery {
+        padding: 10em 2em;
+        &__box {
+            gap: 4em;
+        }
+    }
 }
 
 
@@ -1143,6 +1271,13 @@ body {
         }
         &__rule {
             width: 35%;
+        }
+    }
+
+    .gallery {
+        padding: 12em 2em;
+        &__box {
+            gap: 6em;
         }
     }
 }
