@@ -504,6 +504,7 @@ body {
         font-family: $Roboto;
         border-radius: 5px;
         z-index: 0;
+        isolation: isolate;
 
         &:hover .crew__card-paw {
             opacity: 0.3;
@@ -560,10 +561,6 @@ body {
 .rules {
     padding: 6em 2em;
     background-color: $rulesSectionBg;
-
-
-
-
     .line {
         display: none;
     }

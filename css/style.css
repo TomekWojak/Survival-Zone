@@ -589,6 +589,7 @@ body {
   font-family: "Roboto", sans-serif;
   border-radius: 5px;
   z-index: 0;
+  isolation: isolate;
 }
 .crew__card:hover .crew__card-paw {
   opacity: 0.3;

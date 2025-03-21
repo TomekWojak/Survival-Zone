@@ -11,12 +11,13 @@ const logo = document.querySelector('.nav__logo-img')
 burgerBtn.addEventListener('click', () => {
 
     const isOpened = burgerBtn.getAttribute('aria-expanded')
-
-    if(isOpened === 'true') {
+    const isHidden = navMobile.getAttribute('aria-hidden')
+    if(isOpened === 'true' && isHidden === 'false') {
         burgerBtn.setAttribute('aria-expanded', 'false')
         burgerBtn.classList.add('closeAnimation')
         burgerBtn.classList.remove('openAnimation')
         navMobile.classList.remove('active')
+        navMobile.setAttribute('aria-hidden', 'true')
         logo.classList.remove('rotated')
         logo.classList.add('unrotated')
         
@@ -25,6 +26,7 @@ burgerBtn.addEventListener('click', () => {
         burgerBtn.classList.remove('closeAnimation')
         burgerBtn.classList.add('openAnimation')
         navMobile.classList.add('active')
+        navMobile.setAttribute('aria-hidden', 'false')
         logo.classList.add('rotated')
         logo.classList.remove('unrotated')
     }
