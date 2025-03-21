@@ -8,6 +8,10 @@ const nav = document.querySelector('.nav')
 const allNavMobileLinks = document.querySelectorAll('.nav__item')
 const logo = document.querySelector('.nav__logo-img')
 const footerYear = document.querySelector('.footer__year')
+const backToTopArrow = document.querySelector('.scroll-up-arrow')
+
+
+
 
 burgerBtn.addEventListener('click', () => {
 
@@ -65,15 +69,17 @@ const handleYear = () => {
     footerYear.innerText = currentYear
 }
 
-const handleNavBg = () => {
+const handleScrollEvents = () => {
     const scrollChange = window.scrollY
 
     if(scrollChange >= 150){
         nav.classList.add('nav-bg')
+        backToTopArrow.classList.add('active')
     }else {
         nav.classList.remove('nav-bg')
+        backToTopArrow.classList.remove('active')
     }
 }
 
 handleYear()
-window.addEventListener('scroll', handleNavBg)
+window.addEventListener('scroll', handleScrollEvents)
