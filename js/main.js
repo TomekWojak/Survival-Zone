@@ -2,6 +2,7 @@
 const burgerBtn = document.querySelector('.nav__burger-btn')
 const arrowDown = document.querySelector('.arrow-down')
 const navMobileSpan = document.querySelector('.nav__item-span')
+
 const dropdownMobileListItems = document.querySelectorAll('.nav__dropdown-mobile-li')
 const navMobile = document.querySelector('.nav__links-mobile')
 const nav = document.querySelector('.nav')
@@ -75,11 +76,25 @@ const handleScrollEvents = () => {
     if(scrollChange >= 150){
         nav.classList.add('nav-bg')
         backToTopArrow.classList.add('active')
+        backToTopArrow.setAttribute('aria-hidden', 'false')
+        
     }else {
         nav.classList.remove('nav-bg')
         backToTopArrow.classList.remove('active')
+        backToTopArrow.setAttribute('aria-hidden', 'true')
     }
+
 }
+
+
+navMobileSpan.addEventListener('keydown', (e) => {
+    if(e.key === "Enter"){
+        e.preventDefault()
+        navMobileSpan.click();
+    }
+})
+
+
 
 handleYear()
 window.addEventListener('scroll', handleScrollEvents)
